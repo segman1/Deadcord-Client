@@ -1,5 +1,7 @@
 //META{"name":"Deadcord"}*//
 
+// TEST COMMENT
+
 const config = {
   "ACCESS_URL": "http://localhost:6660",
 }
