@@ -14,7 +14,7 @@ class Deadcord {
     return "A BetterDiscord plugin to interact with the Deadcord engine.";
   }
   getVersion() {
-    return "1.1";
+    return "1.2";
   }
   getAuthor() {
     return "GalaxzyDev";
@@ -117,7 +117,7 @@ class Deadcord {
       var nickname = get_text_value("nickname");
 
       if (nickname !== false) {
-        post_data(`nickname`, {
+        post_data(`nick`, {
           server_id: get_url()[4],
           nickname: nickname,
         });
@@ -125,9 +125,7 @@ class Deadcord {
     }
 
     function disguise_tokens() {
-      post_data(`disguise`, {
-        server_id: get_url()[4],
-      });
+      get_data(`disguise`)
     }
 
     function speak_tokens() {
@@ -229,7 +227,14 @@ class Deadcord {
     }
 
     function get_url() {
-      return window.location.href.split("/");
+      var format = window.location.href.split("/");
+
+      for ( const [key,value] of Object.entries(format) ) {
+        if (value.includes("#")){
+          format[key] = value.split('#')[0]
+        }
+      }
+      return format
     }
 
     function get_text_value(input_id) {
