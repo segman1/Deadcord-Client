@@ -14,7 +14,7 @@ class Deadcord {
     return "A BetterDiscord plugin to interact with the Deadcord engine.";
   }
   getVersion() {
-    return "1.4";
+    return "1.5";
   }
   getAuthor() {
     return "GalaxzyDev";
